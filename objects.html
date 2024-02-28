@@ -1,0 +1,55 @@
+Write a blog about objects and its internal representation in Javascript
+
+Unveiling the Internal Representation of Objects in JavaScript
+
+In the realm of programming languages, JavaScript stands out as a versatile and powerful tool for web development, thanks in part to its rich support for objects. Objects play a central role in JavaScript, serving as the building blocks for data structures and enabling developers to organize and manipulate complex data effectively. In this blog post, we'll take a deep dive into the internal representation of objects in JavaScript, uncovering how they are structured and manipulated under the hood.
+
+
+Understanding Objects in JavaScript
+In JavaScript, objects are dynamic collections of key-value pairs, where keys are strings (or symbols) and values can be of any data type, including other objects, functions, arrays, and primitive values. Objects in JavaScript are instances of the Object constructor, and they can be created using object literals {}, the new keyword, or by calling constructor functions.
+// Creating an object using object literal
+const person = {
+  name: 'Nandini Gajjar',
+  age: 24,
+  email: 'nandinigajjar@example.com'
+};
+
+
+Internal Representation of Objects
+Internally, objects in JavaScript are represented as hash tables (also known as hash maps or dictionaries), which are a type of data structure that stores key-value pairs. Hash tables provide efficient lookup, insertion, and deletion of key-value pairs, making them well-suited for implementing objects in JavaScript.
+
+When you create an object in JavaScript, the JavaScript engine allocates memory to store the object's properties and methods. Each property of the object is stored as a key-value pair in the hash table, where the key is the property name (converted to a string if necessary), and the value is a reference to the property's value in memory.
+
+
+Property Access and Manipulation:
+Accessing and manipulating properties of objects in JavaScript is a fundamental aspect of working with objects. You can access object properties using dot notation (object.property) or bracket notation (object['property']), with the latter being particularly useful when the property name is dynamic or contains special characters.
+// Accessing object properties
+console.log(person.name); // Output: Nandini Gajjar
+console.log(person['age']); // Output: 24
+
+// Adding a new property
+person.city = 'Ahmedabad';
+
+// Modifying an existing property
+person.age = 25;
+
+// Deleting a property
+delete person.email;
+
+
+Object Prototypes and Inheritance:
+In JavaScript, objects can inherit properties and methods from other objects through a mechanism called prototype-based inheritance. Each object in JavaScript has an internal property called [[Prototype]], which references another object known as its prototype. When you access a property of an object, if the property is not found on the object itself, the JavaScript engine looks up the prototype chain until it finds the property or reaches the end of the chain.
+// Creating an object with a prototype
+const personPrototype = {
+  greet() {
+    return `Hello, my name is ${this.name}`;
+  }
+};
+
+const john = Object.create(personPrototype);
+john.name = 'Nandini Gajjar';
+
+console.log(Nandini.greet()); // Output: Hello, my name is Nandini Gajjar
+
+Conclusion:
+Understanding the internal representation of objects in JavaScript is crucial for writing efficient and performant code. By grasping how objects are structured and manipulated under the hood, developers can leverage JavaScript's powerful object-oriented features to build scalable and maintainable web applications. Whether you're a beginner or an experienced JavaScript developer, exploring the intricacies of objects in JavaScript opens up a world of possibilities for creating dynamic and interactive web experiences.
